@@ -5,6 +5,7 @@
 ![UML Activity](diagrams/activity-uml.png)
 ![BPNN](diagrams/process-bpmn.png)
 <img width="598" height="745" alt="изображение" src="https://github.com/user-attachments/assets/cc6fa178-a11d-40af-b187-364a8510970e" />
+<img width="643" height="601" alt="изображение" src="https://github.com/user-attachments/assets/0ed569d1-43d5-4faa-971d-3b0d17963685" />
 
 Вывод: я разобрался как настроить git-репозиторий, освоил базовые команды и графическую нотацию,
 увидел разницу между текстовыми и бинарными форматами при версионировании.
