@@ -1,0 +1,68 @@
+[
+    {
+        "id": "af2181c7bbaef09d",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Запуск",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "af3b5d528b7cb002"
+            ]
+        ]
+    },
+    {
+        "id": "af3b5d528b7cb002",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "Обработка чисел",
+        "func": "// Массив чисел\nconst numbers = [1, 2, 3, 4, 5];\n\n// Переменная с let\nlet sum = 0;\n\n// Цикл for\nfor (let i = 0; i < numbers.length; i++) {\n    sum += numbers[i];\n}\n\n// Вычисляем среднее\nconst avg = sum / numbers.length;\n\n// Объект-результат\nconst result = {\n    sum: sum,\n    average: avg,\n    input: msg.payload\n};\n\n// Условие if/else\nif (avg > 3) {\n    result.verdict = \"Среднее больше 3\";\n} else {\n    result.verdict = \"Среднее меньше или равно 3\";\n}\n\n// Возвращаем объект в msg.payload\nmsg.payload = result;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 140,
+        "wires": [
+            [
+                "ecd1a4453b57f176"
+            ]
+        ]
+    },
+    {
+        "id": "ecd1a4453b57f176",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Результат",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 140,
+        "wires": []
+    }
+]

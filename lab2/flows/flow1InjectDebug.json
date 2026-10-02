@@ -1,0 +1,48 @@
+[
+    {
+        "id": "745e8bd78e1783b5",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "lab2/Шило/basic",
+        "payload": "Шило",
+        "payloadType": "str",
+        "x": 210,
+        "y": 260,
+        "wires": [
+            [
+                "470fc44811c27533"
+            ]
+        ]
+    },
+    {
+        "id": "470fc44811c27533",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Полное сообщение",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 260,
+        "wires": []
+    }
+]
