@@ -1,0 +1,116 @@
+[
+    {
+        "id": "e76e7d2b3e5a9143",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Тик",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 130,
+        "y": 280,
+        "wires": [
+            [
+                "07c456a12c50be5d"
+            ]
+        ]
+    },
+    {
+        "id": "07c456a12c50be5d",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "Генератор чисел",
+        "func": "// Генерируем случайное число от 0 до 100\nmsg.payload = Math.random() * 100;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "73e5b91f46a28988"
+            ]
+        ]
+    },
+    {
+        "id": "73e5b91f46a28988",
+        "type": "switch",
+        "z": "f0bad752c25eed1e",
+        "name": "Больше 50?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 280,
+        "wires": [
+            [
+                "260e82b4beaffa5d"
+            ],
+            [
+                "213f59d97056c734"
+            ]
+        ]
+    },
+    {
+        "id": "260e82b4beaffa5d",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Больше 50",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "213f59d97056c734",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Меньше 50",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 340,
+        "wires": []
+    }
+]

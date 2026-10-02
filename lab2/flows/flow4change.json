@@ -1,0 +1,89 @@
+[
+    {
+        "id": "4bf6936adf3d0def",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Тест change ",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "тест",
+        "payloadType": "str",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "2580cab19308f718"
+            ]
+        ]
+    },
+    {
+        "id": "2580cab19308f718",
+        "type": "change",
+        "z": "f0bad752c25eed1e",
+        "name": "Изменить поля",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "lab2/change",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "msg",
+                "to": "$now()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "изменено",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "75d6564a35be3df4"
+            ]
+        ]
+    },
+    {
+        "id": "75d6564a35be3df4",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Полное сообщение",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 320,
+        "wires": []
+    }
+]
