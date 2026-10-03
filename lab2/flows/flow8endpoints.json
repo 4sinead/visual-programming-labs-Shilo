@@ -1,0 +1,13 @@
+[
+    {
+        "id": "3e22d88d3dbc7bad",
+        "type": "http response",
+        "z": "f0bad752c25eed1e",
+        "name": "Response items",
+        "statusCode": "",
+        "headers": {},
+        "x": 740,
+        "y": 540,
+        "wires": []
+    }
+]

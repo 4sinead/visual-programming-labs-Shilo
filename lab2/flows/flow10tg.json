@@ -1,0 +1,22 @@
+[
+    {
+        "id": "bd6cfe56ec11cc86",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "Эхо-ответ",
+        "func": "// Не отвечать на команды /start и /time\nconst text = msg.payload.content || \"\";\nif (text.startsWith(\"/start\") || text.startsWith(\"/time\")) {\n    return null; // ничего не отправляем\n}\n\nmsg.payload = {\n    chatId: msg.payload.chatId,\n    type: \"message\",\n    content: \"Ты написал: \" + text\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 800,
+        "wires": [
+            [
+                "a170676bf7e99d37"
+            ]
+        ]
+    }
+]

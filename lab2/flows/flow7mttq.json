@@ -1,0 +1,126 @@
+[
+    {
+        "id": "f0bad752c25eed1e",
+        "type": "tab",
+        "label": "Поток 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2447f907e340fafc",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Публикация",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "$random() * 100",
+        "payloadType": "jsonata",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "02970edfdbb8ba62"
+            ]
+        ]
+    },
+    {
+        "id": "02970edfdbb8ba62",
+        "type": "mqtt out",
+        "z": "f0bad752c25eed1e",
+        "name": "Отправить в топик",
+        "topic": "student/Шило/lab2/temperature",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b52ebdbcb96873cb",
+        "x": 410,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "db769754358b205b",
+        "type": "mqtt in",
+        "z": "f0bad752c25eed1e",
+        "name": "Подписка на топик",
+        "topic": "student/Шило/lab2/temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "b52ebdbcb96873cb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 610,
+        "y": 260,
+        "wires": [
+            [
+                "d28980aaae14b37d"
+            ]
+        ]
+    },
+    {
+        "id": "d28980aaae14b37d",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Получено из топика",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b52ebdbcb96873cb",
+        "type": "mqtt-broker",
+        "name": "HiveMQ Public",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
