@@ -1,0 +1,21 @@
+[
+    {
+        "id": "bb0167cd35389ead",
+        "type": "template",
+        "z": "f0bad752c25eed1e",
+        "name": "Шаблон студента",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n  \"student\": \"{{payload.name}}\",\n  \"group\": \"{{payload.group}}\",\n  \"year\": {{payload.year}},\n  \"status\": \"active\"\n}",
+        "output": "json",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "2c47abd780580495"
+            ]
+        ]
+    }
+]

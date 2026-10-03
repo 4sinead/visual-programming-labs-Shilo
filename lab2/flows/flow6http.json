@@ -1,0 +1,26 @@
+[
+    {
+        "id": "66b0a92d3a4a88b9",
+        "type": "http request",
+        "z": "f0bad752c25eed1e",
+        "name": "Получить факт",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.chucknorris.io/jokes/random",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "9de579716f04d3a1"
+            ]
+        ]
+    }
+]
