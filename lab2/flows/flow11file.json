@@ -1,0 +1,142 @@
+[
+    {
+        "id": "f0bad752c25eed1e",
+        "type": "tab",
+        "label": "Поток 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4efa3594d110b993",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Записать в файл",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 1020,
+        "wires": [
+            [
+                "e5e307dd53ddbd93"
+            ]
+        ]
+    },
+    {
+        "id": "e5e307dd53ddbd93",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "Формирование JSON",
+        "func": "\nmsg.payload = JSON.stringify({\n    timestamp: new Date().toISOString(),\n    value: Math.random(),\n    author: \"Шило\",\n    lab: 2\n}, null, 2);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1020,
+        "wires": [
+            [
+                "f548cedf28c111b8"
+            ]
+        ]
+    },
+    {
+        "id": "f548cedf28c111b8",
+        "type": "file",
+        "z": "f0bad752c25eed1e",
+        "name": "Запись ",
+        "filename": "/c/VisualProga/visual-programming-labs-Shilo/lab2/node-red-data/lab2-data.json",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 660,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0bc5169dac1c3517",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Прочитать ",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 1100,
+        "wires": [
+            [
+                "578f5c40e42ba238"
+            ]
+        ]
+    },
+    {
+        "id": "4b7f10f5bad4333c",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Содержимое файла",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "578f5c40e42ba238",
+        "type": "file in",
+        "z": "f0bad752c25eed1e",
+        "name": "Чтение файла",
+        "filename": "/c/VisualProga/visual-programming-labs-Shilo/lab2/node-red-data/lab2-data.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 460,
+        "y": 1100,
+        "wires": [
+            [
+                "4b7f10f5bad4333c"
+            ]
+        ]
+    }
+]

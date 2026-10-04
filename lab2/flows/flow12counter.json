@@ -1,0 +1,142 @@
+[
+    {
+        "id": "f0bad752c25eed1e",
+        "type": "tab",
+        "label": "Поток 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "992a7153e66434fc",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Flow счётчик",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 1100,
+        "wires": [
+            [
+                "e667a1aaf965b633"
+            ]
+        ]
+    },
+    {
+        "id": "0ec50d0d7f57a07e",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Flow context",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "e667a1aaf965b633",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "Инкремент flow",
+        "func": "let counter = flow.get(\"counter\") || 0;\ncounter++;\nflow.set(\"counter\", counter);\n\nmsg.payload = {\n    flowCounter: counter,\n    comment: \"Значение в flow context\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1100,
+        "wires": [
+            [
+                "0ec50d0d7f57a07e"
+            ]
+        ]
+    },
+    {
+        "id": "2fbf767963a98b5f",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Global счётчик",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 1200,
+        "wires": [
+            [
+                "2f1ed2f69657133e"
+            ]
+        ]
+    },
+    {
+        "id": "8b07c3136d7c2bfc",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Global context",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "2f1ed2f69657133e",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "Инкремент global",
+        "func": "\nlet globalCounter = global.get(\"globalCounter\") || 0;\nglobalCounter++;\nglobal.set(\"globalCounter\", globalCounter);\n\nmsg.payload = {\n    globalCounter: globalCounter,\n    comment: \"Значение в global context\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1200,
+        "wires": [
+            [
+                "8b07c3136d7c2bfc"
+            ]
+        ]
+    }
+]
