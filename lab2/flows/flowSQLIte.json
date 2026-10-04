@@ -1,0 +1,323 @@
+[
+    {
+        "id": "f0bad752c25eed1e",
+        "type": "tab",
+        "label": "Поток 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "77dde46238a6c521",
+        "type": "sqlite",
+        "z": "f0bad752c25eed1e",
+        "mydb": "1de96ec754dcfe48",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Lab2 SQLite DB",
+        "x": 640,
+        "y": 1340,
+        "wires": [
+            [
+                "9dbc4d7706d5e441"
+            ]
+        ]
+    },
+    {
+        "id": "811758de4b917c6a",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Создать таблицы",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 1180,
+        "wires": [
+            [
+                "16c153c8d095dadb",
+                "acabdc05d85c2d62"
+            ]
+        ]
+    },
+    {
+        "id": "adff87f84e408095",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Вставить студента",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 1260,
+        "wires": [
+            [
+                "db276b247577a9da"
+            ]
+        ]
+    },
+    {
+        "id": "52c4f3bae385083e",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Вставить лог",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1340,
+        "wires": [
+            [
+                "b5235ff0211d4e5e"
+            ]
+        ]
+    },
+    {
+        "id": "34ba9a5f1fa88994",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Выбрать студентов",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 1420,
+        "wires": [
+            [
+                "84b92064dd4abc1d"
+            ]
+        ]
+    },
+    {
+        "id": "f605b5bbfb8e0b76",
+        "type": "inject",
+        "z": "f0bad752c25eed1e",
+        "name": "Выбрать логи",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1500,
+        "wires": [
+            [
+                "351610d236ee5c3b"
+            ]
+        ]
+    },
+    {
+        "id": "16c153c8d095dadb",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "SQL создание students",
+        "func": "msg.topic = `\n    CREATE TABLE IF NOT EXISTS students (\n        id INTEGER PRIMARY KEY AUTOINCREMENT,\n        name TEXT NOT NULL,\n        group_name TEXT NOT NULL\n    );\n`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1120,
+        "wires": [
+            [
+                "77dde46238a6c521"
+            ]
+        ]
+    },
+    {
+        "id": "db276b247577a9da",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "SQL insert студента",
+        "func": "msg.topic = \"INSERT INTO students (name, group_name) VALUES ('Шило', 'ВП-21');\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1260,
+        "wires": [
+            [
+                "77dde46238a6c521"
+            ]
+        ]
+    },
+    {
+        "id": "b5235ff0211d4e5e",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "SQL insert лог",
+        "func": "\nmsg.topic = `INSERT INTO logs (event, timestamp) VALUES ('login', '${new Date().toISOString()}');`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1340,
+        "wires": [
+            [
+                "77dde46238a6c521"
+            ]
+        ]
+    },
+    {
+        "id": "84b92064dd4abc1d",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "SQL select студенты",
+        "func": "msg.topic = \"SELECT * FROM students;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1420,
+        "wires": [
+            [
+                "77dde46238a6c521"
+            ]
+        ]
+    },
+    {
+        "id": "351610d236ee5c3b",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "SQL select логи ",
+        "func": "\nmsg.topic = \"SELECT * FROM logs ORDER BY id DESC LIMIT 10;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1500,
+        "wires": [
+            [
+                "77dde46238a6c521"
+            ]
+        ]
+    },
+    {
+        "id": "9dbc4d7706d5e441",
+        "type": "debug",
+        "z": "f0bad752c25eed1e",
+        "name": "Результат SQL",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "acabdc05d85c2d62",
+        "type": "function",
+        "z": "f0bad752c25eed1e",
+        "name": "SQL создание logs",
+        "func": "msg.topic = `\n    CREATE TABLE IF NOT EXISTS logs (\n        id INTEGER PRIMARY KEY AUTOINCREMENT,\n        event TEXT NOT NULL,\n        timestamp TEXT NOT NULL\n    );\n`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 1200,
+        "wires": [
+            [
+                "77dde46238a6c521"
+            ]
+        ]
+    },
+    {
+        "id": "1de96ec754dcfe48",
+        "type": "sqlitedb",
+        "db": "lab2-data.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "11ddeac4cd05e18a",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-sqlite": "2.0.1"
+        }
+    }
+]
