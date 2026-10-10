@@ -21,52 +21,68 @@ AI-промпты использовал например при написан�
 Напиши Function-нодус базовыми элементами JavaScript: let/const, if/else, цикл for, массив, объект
 Скриншоты
 
-### Поток 2.1. Inject → Debug
-![01](screenshots/01-inject-debug.png)
+## Скриншоты
 
-### Поток 2.2. Function node
-![02](screenshots/02-function.png)
+### Часть 1. Версия Node-RED и Node.js
+![Версия](../screenshots/1version.png)
 
-### Поток 2.3. Switch node
-![03](screenshots/03-switch.png)
+### Часть 2.1 — Inject → Debug
+![Inject Debug](../screenshots/1injectDebug.png)
 
-### Поток 2.4. Change node
-![04](screenshots/04-change.png)
+### Часть 2.2 — Function node
+![Function](../screenshots/2function.png)
 
-### Поток 2.5. Template node
-![05](screenshots/05-template.png)
+### Часть 2.3 — Switch node
+![Switch](../screenshots/3switch.png)
 
-### Поток 2.6. HTTP Request
-![06](screenshots/06-http-request.png)
+### Часть 2.4 — Change node
+![Change](../screenshots/4change.png)
 
-### Поток 2.7. MQTT
-![07](screenshots/07-mqtt.png)
+### Часть 2.5 — Template node
+![Template](../screenshots/4template.png)
 
-### Поток 2.8. GET-эндпоинты
-![08a](screenshots/08a-text.png)
-![08b](screenshots/08b-info.png)
-![08c](screenshots/08c-items-ok.png)
-![08d](screenshots/08d-items-400.png)
-![08e](screenshots/08e-items-404.png)
+### Часть 2.6 — HTTP Request
+![HTTP Request](../screenshots/6httpRequest.png)
 
-### Поток 2.9. Dashboard
-![09](screenshots/09-dashboard.png)
+### Часть 2.7 — MQTT
+![MQTT](../screenshots/7mttq.png)
 
-### Поток 2.10. Telegram-бот
-![10](screenshots/10-telegram.png)
+### Часть 2.8 — GET-эндпоинты
 
-### Поток 2.11. Файлы
-![11](screenshots/11-files.png)
+**Успешный запрос `/api/text`:**
+![Text](../screenshots/8text.png)
 
-### Поток 2.12. Контекст
-![12](screenshots/12-context.png)
+**Успешный запрос `/api/info`:**
+![Info](../screenshots/8info.png)
 
-### Ачивка 10. SQLite
-![ach10a](screenshots/ach10a-create-tables.png)
-![ach10b](screenshots/ach10b-insert.png)
-![ach10c](screenshots/ach10c-select.png)
-![ach10d](screenshots/ach10d-after-restart.png)
-![ach10e](screenshots/ach10e-flow.png)
+**Успешный запрос `/api/items/5`:**
+![Items OK](../screenshots/8items.png)
+
+**Ошибка 400 (`/api/items/abc`):**
+![Error 400](../screenshots/8idError.png)
+
+**Ошибка 404 (`/api/items/500`):**
+![Not Found](../screenshots/8notFound.png)
+
+### Часть 2.9 — Dashboard
+![Dashboard](../screenshots/9ui.png)
+
+### Часть 2.10 — Telegram-бот
+![Telegram](../screenshots/10tg.png)
+
+### Часть 2.11 — Файлы
+![Files](../screenshots/11file.png)
+
+### Часть 2.12 — Контекст
+![Context](../screenshots/12counter.png)
+
+### Ачивка 10 — SQLite
+
+**Работа с SQLite (создание таблиц, вставка, выборка):**
+![SQLite](../screenshots/sqlite.png)
+
+**Сохранение после перезапуска Node-RED:**
+![SQLite Reload](../screenshots/sqliteReload.png)
 
 Вывод: Во время выполнения я освоил основные ноды в node-red, их связь, понял в каких сферах 
 это применимо. Node-red способен облегчить жизнь тем, кто не хочет разбираться в синтаксисе js, 
