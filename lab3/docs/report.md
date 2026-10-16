@@ -169,3 +169,23 @@
 
 **Delete (удаление записи):**
 ![10-workflow-delete](../screenshots/popUpDeleted.png)
+
+## Часть 5. Ачивка Plugins
+**Плагин:** Progress Bar.
+
+**Что сделано:**
+
+Установил плагин Progress Bar, добавил элемент на страницу 
+`goals`. Создал 3 Custom State: `eatenCalories`, 
+`targetCalories`, `caloriesPercent`. В workflow Page is loaded 
+настроил 3 действия Set state, которые считают сумму калорий, 
+целевые калории и процент. ProgressBar в поле `Percentage` 
+получает `goals's caloriesPercent`.
+
+**Скриншоты:**
+
+**Progress Bar в редакторе:**
+![Progress Bar](../screenshots/progressBar.png)
+
+**Progress Bar в Preview:**
+![Preview](../screenshots/progressBarPreview.png)
