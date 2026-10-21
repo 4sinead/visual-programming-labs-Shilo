@@ -40,7 +40,7 @@ n8n start
 Собрал workflow Manual Trigger → Code → NoOp. В Code использованы `const`, `let`, `for`, массив, объект, `if/else`.
 Экспорт: `flows/flow-02-code.json`.
 
-![flow-02](../screenshots/2noOp.png)
+![flow-02](../screenshots/2noOn.png)
 
 ### 2.3. IF node
 
