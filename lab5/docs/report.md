@@ -12,7 +12,7 @@
 
 Создал бота на основе шаблона **Lead Generation**. Перевёл все тексты, кнопки и описания на русский язык.
 
-![translate](../screenshots/1translate.png)
+![translate](../screenshots/1translated.png)
 ### Часть 2. Логика, переменные и интеграции
 
 Добавил в шаблон:
