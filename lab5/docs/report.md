@@ -31,6 +31,10 @@
 **Пример диалога с ботом (интерфейс чата):**
 
 ![2chat](../screenshots/2chat.png)
+**Пример http  запроса с методом GET:**
+
+![httprequest](../screenshots/httprequest.png)
+
 ## Освоенные элементы TypeBot
 
 Text, Image, Buttons, Condition, Set Variable, HTTP Request, Theme, Publish.
